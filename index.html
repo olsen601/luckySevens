@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<!--
+  Name: Ryan Olsen
+  Date Created: 12/23/18
+  Most recent revision:
+-->
+<html lang="en">
+  <head>
+    <script type="text/javascript" src="scripts/luckySevens.js"></script>
+    <link href="styles/luckySevensStyle.css" rel="stylesheet" type="text/css"/>
+
+    <title>Lucky Sevens</title>
+  </head>
+
+
+  <body>
+    <div class="container">
+      <h1>Lucky Sevens</h1>
+      <form onsubmit="return checkBet();">
+        <div class="row">
+          <label>Starting Bet: </label>
+          <input id="bet" type="number" placeholder="$0.00">
+        </div><br>
+        <p id="playBtn"><input type="submit" value="Play"/></p>
+      </form>
+      <div id="results">
+        <h1>Results</h1>
+        <hr>
+        <table>
+          <tr>
+            <td>Starting Bet</td>
+            <td>$<p id="startingBet"></p</td>
+          </tr>
+          <tr>
+            <td>Total Rolls Before Going Broke</td>
+            <td><p id="totalRolls"></p></td>
+          </tr>
+          <tr>
+            <td>Highest Amount Won</td>
+            <td>$<p id="highestAmount"></p></td>
+          </tr>
+          <tr>
+            <td>Roll Count at Highest Amount Won</td>
+            <td><p id="rollCountHighest"></p></td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </body>
+</html>

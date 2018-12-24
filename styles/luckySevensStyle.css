@@ -1,0 +1,35 @@
+/*
+  Name: Ryan Olsen
+  Date Created: 12/23/18
+  Most recent revision:
+*/
+.row {
+  display: inline;
+}
+.container {
+  padding: 2%;
+  display: block;
+  margin:auto;
+  text-align: center;
+}
+#playBtn {
+  text-align: center;
+}
+h1 {
+  font-size: 3.0em;
+}
+table {
+  width: 400px;
+  border-style: solid;
+  border-width: 3px;
+  text-align: left;
+}
+td {
+  border-style: solid;
+  border-width: 1px;
+  padding: 2px;
+}
+#results {
+  margin: 0 auto;
+  width: 400px;
+}
