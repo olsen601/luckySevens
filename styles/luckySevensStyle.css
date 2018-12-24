@@ -32,4 +32,6 @@ td {
 #results {
   margin: 0 auto;
   width: 400px;
+  /*visibility: hidden;
+  preventDefault problem with displaying table data, not useful*/
 }

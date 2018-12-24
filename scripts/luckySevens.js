@@ -1,71 +1,77 @@
-var bet;
+var bet = 0;
+var results = document.getElementById("results");
 var resultsTable;
-var initialBet;
+var initialBet = 0;
 var high = 0;
-var highRolls =0;
+var highRolls = 0;
 var rolls = 0;
 var count = 0;
 
-'use strict';
+
+/*'use strict';
 window.addEventListener('load', function setup() {
-  resultsTable = document.getElementById("results");
-  count += 1;
+  results = document.getElementById("results");
   if (count == 0){
-    resultsTable.style.visibility = "hidden";
+    results.style.visibility = "hidden";
   } else {
-    resultsTable.style.visibility = "visible";
+    results.style.visibility = "visible";
+    return
   }
-
-  return resultsTable;
-});
-
+  count += 1;
+});*/
+//preventDefault disables visibility since it will no longer be loading when the form is submitted
 
 function checkBet() {
   bet = document.getElementById("bet").value;
   initialBet = bet;
+  high = bet;
   console.log(bet);
   if(bet >= 1 && bet != 0){
-    rolls = play(bet);
-    return resultsOutput();
+    play(bet);
+    resultsOutput();
     //todo play
   } else {
     alert("Bet must be greater than zero to play.")
   };
-  return initialBet;
 };
 
 function play(bet) {
-  high = initialBet;
   while (bet > 1) {
-    if (roleDice + roleDice == 7) {
+    if ((roleDice() + roleDice()) == 7) {
       bet += 4.00;
+      rolls += 1;
     } else {
       bet -= 1.00;
-    }
-    rolls += 1;
+      rolls += 1;
+    };
     if (bet > high) {
       high = bet;
       highRolls = rolls;
-    }
-  }
-  return rolls;
-}
+    };
+  };
+  return
+};
 
 function resultsOutput() {
-  resultsTable = document.getElementById("results");
-  var startingBet = document.getElementById("startingBet");
+  resultsTable = document.getElementById("resultsTable");
+  /*var startingBet = document.getElementById("startingBet");
   var totalRolls = document.getElementById("totalRolls");
   var highestAmount = document.getElementById("highestAmount");
-  var rollCountHighest = document.getElementById("rollCountHighest");
+  var rollCountHighest = document.getElementById("rollCountHighest");*/
 
-  startingBet.innerText = initialBet;
+  var rowOne = resultsTable.rows[0].cells;
+  rowOne[1].innerHTML = ("<p>$"+initialBet+"</p>");
   console.log(initialBet);
-  totalRolls.innerText = rolls;
+  var rowTwo = resultsTable.rows[1].cells;
+  rowTwo[1].innerHTML = ("<p>"+rolls+"</p>");
   console.log(rolls);
-  highestAmount.innerText = high;
+  var rowThree = resultsTable.rows[2].cells;
+  rowThree[1].innerHTML = ("<p>$"+high+"</p>");
   console.log(high);
-  rollCountHighest.innerText = highRolls;
+  var rowFour = resultsTable.rows[3].cells;
+  rowFour[1].innerHTML = ("<p>"+highRolls+"</p>");
   console.log(highRolls);
+  //alter to for loop based on row and cell with and array of the values
 }
 
 function roleDice() {

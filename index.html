@@ -16,32 +16,32 @@
   <body>
     <div class="container">
       <h1>Lucky Sevens</h1>
-      <form onsubmit="return checkBet();">
+      <form onsubmit="checkBet(); return false;">
         <div class="row">
           <label>Starting Bet: </label>
-          <input id="bet" type="number" placeholder="$0.00">
+          <input id="bet" type="number" step="0.01" placeholder="$0.00">
         </div><br>
         <p id="playBtn"><input type="submit" value="Play"/></p>
       </form>
       <div id="results">
         <h1>Results</h1>
         <hr>
-        <table>
+        <table id="resultsTable">
           <tr>
             <td>Starting Bet</td>
-            <td>$<p id="startingBet"></p</td>
+            <td></td>
           </tr>
           <tr>
             <td>Total Rolls Before Going Broke</td>
-            <td><p id="totalRolls"></p></td>
+            <td></td>
           </tr>
           <tr>
             <td>Highest Amount Won</td>
-            <td>$<p id="highestAmount"></p></td>
+            <td></td>
           </tr>
           <tr>
             <td>Roll Count at Highest Amount Won</td>
-            <td><p id="rollCountHighest"></p></td>
+            <td></td>
           </tr>
         </table>
       </div>
