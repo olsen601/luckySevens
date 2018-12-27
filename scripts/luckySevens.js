@@ -1,35 +1,20 @@
-var bet = 0;
+var bet;
 var results = document.getElementById("results");
 var resultsTable;
-var initialBet = 0;
-var high = 0;
+var initialBet;
+var high;
 var highRolls = 0;
 var rolls = 0;
-var count = 0;
-
-
-/*'use strict';
-window.addEventListener('load', function setup() {
-  results = document.getElementById("results");
-  if (count == 0){
-    results.style.visibility = "hidden";
-  } else {
-    results.style.visibility = "visible";
-    return
-  }
-  count += 1;
-});*/
-//preventDefault disables visibility since it will no longer be loading when the form is submitted
 
 function checkBet() {
   bet = document.getElementById("bet").value;
   initialBet = bet;
   high = bet;
-  console.log(bet);
+  //console.log(bet);
   if(bet >= 1 && bet != 0){
     play(bet);
     resultsOutput();
-    //todo play
+    reset();
   } else {
     alert("Bet must be greater than zero to play.")
   };
@@ -53,27 +38,18 @@ function play(bet) {
 };
 
 function resultsOutput() {
-  resultsTable = document.getElementById("resultsTable");
-  /*var startingBet = document.getElementById("startingBet");
-  var totalRolls = document.getElementById("totalRolls");
-  var highestAmount = document.getElementById("highestAmount");
-  var rollCountHighest = document.getElementById("rollCountHighest");*/
+  resultsTable = document.getElementById("results");
+  resultsTable.innerHTML = ('<h1>Results</h1><hr><table id="resultsTable"><tr><td>Starting Bet</td><td>$'+initialBet+'</td></tr><tr><td>Total Rolls Before Going Broke</td><td>'+rolls+'</td></tr><tr><td>Highest Amount Won</td><td>$'+high+'</td></tr><tr><td>Roll Count at Highest Amount Won</td><td>'+highRolls+'</td></tr></table>');
+  var alterSubmit = document.getElementById('submitInput');
+  alterSubmit.value = ("Play Again");
+}
 
-  var rowOne = resultsTable.rows[0].cells;
-  rowOne[1].innerHTML = ("<p>$"+initialBet+"</p>");
-  console.log(initialBet);
-  var rowTwo = resultsTable.rows[1].cells;
-  rowTwo[1].innerHTML = ("<p>"+rolls+"</p>");
-  console.log(rolls);
-  var rowThree = resultsTable.rows[2].cells;
-  rowThree[1].innerHTML = ("<p>$"+high+"</p>");
-  console.log(high);
-  var rowFour = resultsTable.rows[3].cells;
-  rowFour[1].innerHTML = ("<p>"+highRolls+"</p>");
-  console.log(highRolls);
-  //alter to for loop based on row and cell with and array of the values
+function reset() {
+  rolls = 0;
+  high = 0;
+  highRolls = 0;
 }
 
 function roleDice() {
-  return Math.floor(Math.random() * 6) + 1;
+  return (Math.floor(Math.random() * 6) + 1);
 }
